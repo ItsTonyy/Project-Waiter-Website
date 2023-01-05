@@ -45,6 +45,11 @@ export function OrderModal({visible, order}: OrderModalProps) {
         <OrderDetails>
           <strong>Itens</strong>
 
+          {order.products.map(({_id, product, quantity}) => (
+            <div className='item' key={_id}>
+              <img src={`http://localhost:3001/uploads/${product.imagePath}`} alt={product.name}/>
+            </div>
+          ))}
         </OrderDetails>
       </ModalBody>
     </Overlay>
